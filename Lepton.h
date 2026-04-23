@@ -18,4 +18,17 @@ public:
 
     //getter (for antiparticles)
     int get_lepton_number() const;
-}
+};
+
+class Neutrino : public Lepton {
+private:
+    //decide later
+
+public:
+    //constructor
+    Neutrino(std::string name, bool anti, double E, double px, double py, double pz);
+
+    virtual ~Neutrino() override;
+};
+
+#endif
