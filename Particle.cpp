@@ -23,9 +23,12 @@ Particle::~Particle() {
 }
 
 //copy constructor
-Particle::Particle(const Particle& other) : name(other.name) {
+Particle::Particle(const Particle& other)
+    : name(other.name), mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
+      momentum(std::make_unique<FourMomentum>(*other.momentum)) {
     std::cout << "Calling Copy Constructor" << std::endl;
-    four_momentum = new std::vector<double>(*other.four_momentum);
+    //deep copy of momentum
+    momentum = std::make_unique<FourMomentum>(*other.momentum);
 }
 
 //copy assignment operator
