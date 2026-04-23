@@ -36,10 +36,13 @@ Particle& Particle::operator=(const Particle& other) {
     std::cout << "Calling Copy Assignment Operator" << std::endl;
     if (this == &other) return *this; // self-assignment check
 
-    delete four_momentum;
-
     name = other.name;
-    four_momentum = new std::vector<double>(*other.four_momentum);
+    mass = other.mass;
+    charge = other.charge;
+    is_antiparticle = other.is_antiparticle;
+
+    //deep copy of momentum
+    momentum = std::make_unique<FourMomentum>(*other.momentum);
 
     return *this;
 }
