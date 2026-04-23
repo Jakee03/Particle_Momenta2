@@ -59,11 +59,11 @@ Particle& Particle::operator=(Particle&& other) noexcept {
     std::cout <<"Calling Move Assignment Operator" << std::endl;
     if (this == &other) return *this;
 
-    delete four_momentum;
-
     name = std::move(other.name);
-    four_momentum = other.four_momentum;
-    other.four_momentum = nullptr;
+    mass = other.mass;
+    charge = other.charge;
+    is_antiparticle = other.is_antiparticle;
+    momentum = std::move(other.momentum);
 
     return *this;
 }
