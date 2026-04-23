@@ -9,13 +9,13 @@
 #include <cmath>
 
 //default constructor
-Particle::Particle() : mass(0), charge(0), is_antiparticle(false), name("unknown"), momentum(std::make_unique<FourMomentum>(0.0, 0.0, 0.0, 0.0)) {
+Particle::Particle() : name("unknown"), mass(0), charge(0), is_antiparticle(false), momentum(std::make_unique<FourMomentum>(0.0, 0.0, 0.0, 0.0)) {
     std::cout << "Calling Default Constructor" << std::endl;
 }
 
 //parameterized constructor
 Particle::Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
-    : mass(mass), charge(charge), is_antiparticle(is_antiparticle), name(name), 
+    : name(name), mass(mass), charge(charge), is_antiparticle(is_antiparticle), 
       momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {       
     std::cout << "Calling Parameterized Constructor" << std::endl;
 }
