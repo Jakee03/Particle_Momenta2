@@ -48,9 +48,10 @@ Particle& Particle::operator=(const Particle& other) {
 }
 
 //move constructor
-Particle::Particle(Particle&& other) noexcept : name(std::move(other.name)), four_momentum(other.four_momentum) {
+Particle::Particle(Particle&& other) noexcept
+ : name(std::move(other.name)), mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
+   momentum(std::move(other.momentum)) {
     std::cout << "Calling Move Constructor" << std::endl;
-    other.four_momentum = nullptr; // prevent double delete
 }
 
 //move assignment operator
