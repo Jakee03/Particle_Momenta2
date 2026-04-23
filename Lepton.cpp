@@ -1,6 +1,8 @@
 #include "Lepton.h"
 #include <iostream>
 
+//LEPTON IMPLEMENTATION
+
 //default constructor
 Lepton::Lepton() : Particle(), lepton_number(1) {}
 
@@ -15,3 +17,11 @@ Lepton::~Lepton() = default;
 int Lepton::get_lepton_number() const {
     return is_antiparticle ? -lepton_number : lepton_number;
 }
+
+//NEUTRINO IMPLEMENTATION
+
+//default constructor
+Neutrino::Neutrino(std::string flavour, bool anti, double E, double px, double py, double pz)
+    : Lepton(flavour + " neutrino", 0.0, 0.0, anti, E, px, py, pz) {}
+
+Neutrino::~Neutrino() = default;
