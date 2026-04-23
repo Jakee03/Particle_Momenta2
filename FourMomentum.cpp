@@ -22,3 +22,13 @@ double FourMomentum::dot_product(const FourMomentum& other) const {
     double spatial = (get_px() * other.get_px()) + (get_py() * other.get_py()) + (get_pz() * other.get_pz());
     return (get_energy() * other.get_energy()) - spatial;
 }
+
+//setters and getters
+double FourMomentum::get_energy() const { return E; }
+double FourMomentum::get_px() const { return px; }
+double FourMomentum::get_py() const { return py; }
+double FourMomentum::get_pz() const { return pz; }
+
+void FourMomentum::set_px(double px) { this->px = px; }
+void FourMomentum::set_py(double py) { this->py = py; }
+void FourMomentum::set_pz(double pz) { this->pz = pz; }
