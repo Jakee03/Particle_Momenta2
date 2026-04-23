@@ -20,7 +20,6 @@ Particle::Particle(std::string name, double mass, double q, bool anti, double E,
 //destructor
 Particle::~Particle() {
     std::cout << "Calling Destructor" << std::endl;
-    delete four_momentum;
 }
 
 //copy constructor
