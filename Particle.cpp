@@ -6,27 +6,15 @@
 #include <cmath>
 
 //default constructor
-Particle::Particle() : name("unknown"), four_momentum(new std::vector<double>(4, 0.0)) {
+Particle::Particle() : mass(0), charge(0), is_antiparticle(false), name("unknown"), momentum(std::make_unique<FourMomentum>(0.0, 0.0, 0.0, 0.0)) {
     std::cout << "Calling Default Constructor" << std::endl;
 }
 
 //parameterized constructor
-Particle::Particle(std::string p_name, double E, double px, double py, double pz) {
-    std::cout << "Calling Parameterised Constructor" << std::endl;
-    if (E < 0) {
-    throw std::invalid_argument("Energy cannot be negative");
-}
-    if (p_name != "electron" && p_name != "muon" && p_name != "tau") {
-        throw std::invalid_argument("Invalid SM particle name. Must be electron, muon, or tau.");
-}
-
-
-    name = p_name;
-    four_momentum = new std::vector<double>();
-    four_momentum->push_back(E);
-    four_momentum->push_back(px);
-    four_momentum->push_back(py);
-    four_momentum->push_back(pz);
+Particle::Particle(std::string name, double mass, double q, bool anti, double E, double px, double py, double pz)
+    : mass(mass), charge(q), is_antiparticle(anti), name(name), 
+      momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {       
+    std::cout << "Calling Parameterized Constructor" << std::endl;
 }
 
 //destructor
@@ -74,16 +62,4 @@ Particle& Particle::operator=(Particle&& other) noexcept {
     return *this;
 }
 
-//getters
-double Particle::getE() const { return (*four_momentum)[0]; }
-double Particle::getPx() const { return (*four_momentum)[1]; }
-double Particle::getPy() const { return (*four_momentum)[2]; }
-double Particle::getPz() const { return (*four_momentum)[3]; }
-
-//setters
-
-}
-void Particle::setPx(double px) { (*four_momentum)[1] = px; }
-void Particle::setPy(double py) { (*four_momentum)[2] = py; }
-void Particle::setPz(double pz) { (*four_momentum)[3] = pz; }
 

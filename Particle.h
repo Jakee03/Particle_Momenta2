@@ -4,23 +4,31 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
+#include "FourMomentum.h"
 
 class Particle {
+protected:
+    double mass;
+    double charge;
+    bool is_antiparticle;
+
 private:
     std::string name;
     //pointer
     //E,px,py,pz
-    std::vector<double>* four_momentum;
+    std::unique_ptr<FourMomentum> momentum;
 
 public:
     //constructors and destructors
     //default constructor
     Particle();
     //parameterized constructor
-    Particle(std::string p_name, double E, double px, double py, double pz);
+    Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz);
+    
     //Ro5
     //destructor
-    ~Particle();
+    virtual ~Particle();
     //copy constructor
     Particle(const Particle& other);
     //copy assignment operator
@@ -30,13 +38,14 @@ public:
     //move assignment operator
     Particle& operator=(Particle&& other) noexcept;
 
+    double get_energy() const { return momentum->get_energy(); }
 
-    //sum 4-vecs
-    Particle operator+(const Particle& other) const;
-    //dot product
-    double dotProduct(const Particle& other) const;
+    //antiparticle
+    double get_charge() const { return is_antiparticle ? -charge : charge; }
+
+
     //print
-    void print() const;
+    virtual void print() const;
 
 };
 
