@@ -30,18 +30,6 @@ public:
     //move assignment operator
     Particle& operator=(Particle&& other) noexcept;
 
-    //getters and setters
-    std::string getName() const { return name;}
-    double getE() const;
-    double getPx() const;
-    double getPy() const;
-    double getPz() const;
-
-    void setName(std::string n);
-    void setE(double E);
-    void setPx(double px);
-    void setPy(double py);
-    void setPz(double pz);
 
     //sum 4-vecs
     Particle operator+(const Particle& other) const;
