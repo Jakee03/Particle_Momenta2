@@ -18,6 +18,8 @@ public:
 
     //getter (for antiparticles)
     int get_lepton_number() const;
+
+    void print() const override;
 };
 
 class Neutrino : public Lepton {
@@ -29,6 +31,8 @@ public:
     Neutrino(std::string flavour, bool is_antiparticle, double E, double px, double py, double pz);
 
     virtual ~Neutrino() override;
+
+    void print() const override;
 };
 
 #endif

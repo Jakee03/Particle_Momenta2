@@ -75,4 +75,11 @@ std::ostream& operator<<(std::ostream& os, const Particle& p) {
     return os;
 }
 
+void Particle::print() const {
+    std::cout << "Particle: " << name
+                << "| Mass: " << mass << " MeV"
+                << "| Charge: " << get_charge()
+                << "| Energy: " << get_energy() << " MeV" << std::endl;
+}
+
 

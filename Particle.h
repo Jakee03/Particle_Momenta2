@@ -40,6 +40,8 @@ public:
     double get_charge() const { return is_antiparticle ? -charge : charge; }
 
     friend std::ostream& operator<<(std::ostream& os, const Particle& p);
+
+    virtual void print() const;
 };
 
 #endif
