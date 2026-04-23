@@ -26,7 +26,7 @@ private:
 
 public:
     //constructor
-    Neutrino(std::string flavour, bool anti, double E, double px, double py, double pz);
+    Neutrino(std::string flavour, bool is_antiparticle, double E, double px, double py, double pz);
 
     virtual ~Neutrino() override;
 };

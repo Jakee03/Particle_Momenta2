@@ -9,14 +9,10 @@
 
 class Particle {
 protected:
+    std::string name;
     double mass;
     double charge;
     bool is_antiparticle;
-
-private:
-    std::string name;
-    //pointer
-    //E,px,py,pz
     std::unique_ptr<FourMomentum> momentum;
 
 public:
@@ -42,11 +38,6 @@ public:
 
     //antiparticle
     double get_charge() const { return is_antiparticle ? -charge : charge; }
-
-
-    //print
-    virtual void print() const;
-
 };
 
 #endif

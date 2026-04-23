@@ -1,8 +1,11 @@
 #include "Particle.h"
+#include "FourMomentum.h"
 
 #include <iostream>
 #include <algorithm>
 #include <stdexcept>
+#include <memory>
+#include <utility>
 #include <cmath>
 
 //default constructor
@@ -11,8 +14,8 @@ Particle::Particle() : mass(0), charge(0), is_antiparticle(false), name("unknown
 }
 
 //parameterized constructor
-Particle::Particle(std::string name, double mass, double q, bool anti, double E, double px, double py, double pz)
-    : mass(mass), charge(q), is_antiparticle(anti), name(name), 
+Particle::Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
+    : mass(mass), charge(charge), is_antiparticle(is_antiparticle), name(name), 
       momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {       
     std::cout << "Calling Parameterized Constructor" << std::endl;
 }
@@ -27,8 +30,6 @@ Particle::Particle(const Particle& other)
     : name(other.name), mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
       momentum(std::make_unique<FourMomentum>(*other.momentum)) {
     std::cout << "Calling Copy Constructor" << std::endl;
-    //deep copy of momentum
-    momentum = std::make_unique<FourMomentum>(*other.momentum);
 }
 
 //copy assignment operator
