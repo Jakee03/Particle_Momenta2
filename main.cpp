@@ -40,6 +40,16 @@ int main() {
     double dot = dot_product(*particles[6], *particles[7]);
     std::cout << "Dot Product of Anti-Electron and Anti-Muon: " << dot << " MeV^2\n" << std::endl;
 
+    //unique pointer for new electron and move its data
+    std::cout << "Moving unique pointer ownership" << std::endl;
+    std::unique_ptr<Electron> unique_e = std::make_unique<Electron>(false, 200.0, 20.0, 10.0, 5.0);
+    std::unique_ptr<Electron> moved_e = std::move(unique_e);
+    if (!unique_e) {
+        std::cout << "Original unique pointer is now null. Data moved to new pointer.\n" << std::endl;
+        std::cout << "Moved Electron Data: ";
+        moved_e->print();
+    }
+    std::cout << std::endl;
 
 
     return 0;
