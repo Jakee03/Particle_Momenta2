@@ -23,6 +23,7 @@ Particle::Particle(std::string name, double mass, double charge, bool is_antipar
         throw std::invalid_argument("Particle energy cannot be negative.");
     }
 
+}
 //destructor
 Particle::~Particle() {
 }
