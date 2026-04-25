@@ -45,10 +45,10 @@ How this was built:
 7. Specific data members added to the leaf classes to distinguish them
 8. Friend functions added and operator overloading to make program intuitive and maintain encapsulation
 9. main.cpp edited from original code to test program functionality:
-    - Virtual print function
-    - Operator overload
-    - Unique pointer transfer with std::move
-    - Shared pointer use
+    - Virtual print function & polymorphic output
+    - Four-momentum summation and dot products
+    - Unique pointer ownership transfer with std::move
+    - Shared observation using std::shared_ptr
 
 Link to report:
 https://docs.google.com/document/d/1IxH1A-2n6jaz3KGTYmjR5sva2l591BrYNpLLRtSLSqM/edit?usp=sharing
