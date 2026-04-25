@@ -28,10 +28,12 @@ private:
 
 public:
     //constructor
-    Neutrino(std::string flavour, bool is_antiparticle, double E, double px, double py, double pz);
+    Neutrino(std::string flavour, bool is_antiparticle, double E, double px, double py, double pz, bool interacted);
 
     virtual ~Neutrino() override;
 
+    void set_interacted(bool status);
+    bool get_interacted() const;
     void print() const override;
 };
 
@@ -41,8 +43,10 @@ private:
 
 public:
     //constructor
-    Electron(bool is_antiparticle, double E, double px, double py, double pz);
+    Electron(bool is_antiparticle, double E, double px, double py, double pz, double rad_length);
     ~Electron() override = default;
+    void set_radiation_length(double r1);
+    double get_radiation_length() const;
     void print() const override;
 };
 
@@ -51,8 +55,10 @@ private:
     bool is_isolated;
 public:
     //constructor
-    Muon(bool is_antiparticle, double E, double px, double py, double pz);
+    Muon(bool is_antiparticle, double E, double px, double py, double pz, bool isolated);
     ~Muon() override = default;
+    void set_isolated(bool status);
+    bool get_isolated() const;
     void print() const override;
 };
 
@@ -61,8 +67,10 @@ private:
     std::string decay_mode;
 public:
     //constructor
-    Tau(bool is_antiparticle, double E, double px, double py, double pz);
+    Tau(bool is_antiparticle, double E, double px, double py, double pz, std::string decay_mode);
     ~Tau() override = default;
+    void set_decay_mode(std::string mode);
+    std::string get_decay_mode() const;
     void print() const override;
 };
 

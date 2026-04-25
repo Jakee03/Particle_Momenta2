@@ -70,7 +70,7 @@ Particle& Particle::operator=(Particle&& other) noexcept {
 
 //friend func
 std::ostream& operator<<(std::ostream& os, const Particle& p) {
-    os << p.name << " (Mass: " << p.mass << " MeV, Charge: " << p.get_charge() << ")";
+    p.print();
     return os;
 }
 

@@ -26,30 +26,30 @@ void Lepton::print() const {
 //NEUTRINO IMPLEMENTATION
 
 //default constructor
-Neutrino::Neutrino(std::string flavour, bool anti, double E, double px, double py, double pz)
-    : Lepton(flavour + " neutrino", 0.0, 0.0, anti, E, px, py, pz) {}
+Neutrino::Neutrino(std::string flavour, bool anti, double E, double px, double py, double pz, bool interacted)
+    : Lepton(flavour + " neutrino", 0.0, 0.0, anti, E, px, py, pz), has_interacted(interacted) {}
 
 Neutrino::~Neutrino() = default;
 
 void Neutrino::print() const {
     Lepton::print();
-    std::cout << " Type: Neutrino" << std::endl;
+    std::cout << " Type: Neutrino | Has Interacted: " << (has_interacted ? "Yes" : "No") << std::endl;
 }
 
 //ELECTRON IMPLEMENTATION
-
-Electron::Electron(bool anti, double E, double px, double py, double pz)
-    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz), radiation_length(0.0) {}
+    
+Electron::Electron(bool anti, double E, double px, double py, double pz, double rad_length)
+    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz), radiation_length(rad_length) {}
 
 void Electron::print() const {
     Lepton::print();
-    std::cout << " Type: Electron" << std::endl;
+    std::cout << " Type: Electron | Radiation Length: " << radiation_length << " cm" << std::endl;
 }
 
 //MUON IMPLEMENTATION
 
-Muon::Muon(bool anti, double E, double px, double py, double pz)
-    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz), is_isolated(true) {}
+Muon::Muon(bool anti, double E, double px, double py, double pz, bool isolated)
+    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz), is_isolated(isolated) {}
 
 void Muon::print() const {
     Lepton::print();
@@ -58,8 +58,8 @@ void Muon::print() const {
 
 //TAU IMPLEMENTATION
 
-Tau::Tau(bool anti, double E, double px, double py, double pz)
-    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz), decay_mode("unknown") {}
+Tau::Tau(bool anti, double E, double px, double py, double pz, std::string decay_mode)
+    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz), decay_mode(decay_mode) {}
 
 void Tau::print() const {
     Lepton::print();
