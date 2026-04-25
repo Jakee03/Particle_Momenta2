@@ -39,7 +39,7 @@ void Neutrino::print() const {
 //ELECTRON IMPLEMENTATION
 
 Electron::Electron(bool anti, double E, double px, double py, double pz)
-    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz) {}
+    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz), radiation_length(0.0) {}
 
 void Electron::print() const {
     Lepton::print();
@@ -49,19 +49,19 @@ void Electron::print() const {
 //MUON IMPLEMENTATION
 
 Muon::Muon(bool anti, double E, double px, double py, double pz)
-    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz) {}
+    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz), is_isolated(true) {}
 
 void Muon::print() const {
     Lepton::print();
-    std::cout << " Type: Muon" << std::endl;
+    std::cout << " Type: Muon | Isolated: " << (is_isolated ? "Yes" : "No") << std::endl;
 }
 
 //TAU IMPLEMENTATION
 
 Tau::Tau(bool anti, double E, double px, double py, double pz)
-    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz) {}
+    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz), decay_mode("unknown") {}
 
 void Tau::print() const {
     Lepton::print();
-    std::cout << " Type: Tau" << std::endl;
+    std::cout << " Type: Tau | Decay Mode: " << decay_mode << std::endl;
 }

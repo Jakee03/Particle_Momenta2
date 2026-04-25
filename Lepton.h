@@ -24,7 +24,7 @@ public:
 
 class Neutrino : public Lepton {
 private:
-    //decide later
+    bool has_interacted;
 
 public:
     //constructor
@@ -37,7 +37,7 @@ public:
 
 class Electron : public Lepton {
 private:
-    //decide later
+    double radiation_length;
 
 public:
     //constructor
@@ -48,7 +48,7 @@ public:
 
 class Muon : public Lepton {
 private:
-    //decide later
+    bool is_isolated;
 public:
     //constructor
     Muon(bool is_antiparticle, double E, double px, double py, double pz);
@@ -58,7 +58,7 @@ public:
 
 class Tau : public Lepton {
 private:
-    //decide later
+    std::string decay_mode;
 public:
     //constructor
     Tau(bool is_antiparticle, double E, double px, double py, double pz);
