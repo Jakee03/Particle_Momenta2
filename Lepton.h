@@ -35,4 +35,35 @@ public:
     void print() const override;
 };
 
+class Electron : public Lepton {
+private:
+    //decide later
+
+public:
+    //constructor
+    Electron(bool is_antiparticle, double E, double px, double py, double pz);
+    ~Electron() override = default;
+    void print() const override;
+};
+
+class Muon : public Lepton {
+private:
+    //decide later
+public:
+    //constructor
+    Muon(bool is_antiparticle, double E, double px, double py, double pz);
+    ~Muon() override = default;
+    void print() const override;
+};
+
+class Tau : public Lepton {
+private:
+    //decide later
+public:
+    //constructor
+    Tau(bool is_antiparticle, double E, double px, double py, double pz);
+    ~Tau() override = default;
+    void print() const override;
+};
+
 #endif
