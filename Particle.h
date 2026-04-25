@@ -9,7 +9,6 @@
 
 class Particle {
 protected:
-    std::string name;
     double mass;
     double charge;
     bool is_antiparticle;

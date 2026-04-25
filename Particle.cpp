@@ -30,7 +30,7 @@ Particle::~Particle() {
 
 //copy constructor
 Particle::Particle(const Particle& other)
-    : name(other.name), mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
+    : mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
       momentum(std::make_unique<FourMomentum>(*other.momentum)) {
 }
 
@@ -38,7 +38,6 @@ Particle::Particle(const Particle& other)
 Particle& Particle::operator=(const Particle& other) {
     if (this == &other) return *this; // self-assignment check
 
-    name = other.name;
     mass = other.mass;
     charge = other.charge;
     is_antiparticle = other.is_antiparticle;
@@ -51,7 +50,7 @@ Particle& Particle::operator=(const Particle& other) {
 
 //move constructor
 Particle::Particle(Particle&& other) noexcept
- : name(std::move(other.name)), mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
+ : mass(other.mass), charge(other.charge), is_antiparticle(other.is_antiparticle),
    momentum(std::move(other.momentum)) {
 }
 
@@ -59,7 +58,6 @@ Particle::Particle(Particle&& other) noexcept
 Particle& Particle::operator=(Particle&& other) noexcept {
     if (this == &other) return *this;
 
-    name = std::move(other.name);
     mass = other.mass;
     charge = other.charge;
     is_antiparticle = other.is_antiparticle;

@@ -43,7 +43,7 @@ Electron::Electron(bool anti, double E, double px, double py, double pz, double 
 
 void Electron::print() const {
     Lepton::print();
-    std::cout << " Type: Electron | Radiation Length: " << radiation_length << " cm" << std::endl;
+    std::cout << " Type: " << (is_antiparticle ? "Anti-" : "") << "Electron | Radiation Length: " << radiation_length << " cm" << std::endl;
 }
 
 //MUON IMPLEMENTATION
@@ -53,7 +53,7 @@ Muon::Muon(bool anti, double E, double px, double py, double pz, bool isolated)
 
 void Muon::print() const {
     Lepton::print();
-    std::cout << " Type: Muon | Isolated: " << (is_isolated ? "Yes" : "No") << std::endl;
+    std::cout << " Type: " << (is_antiparticle ? "Anti-" : "") << "Muon | Isolated: " << (is_isolated ? "Yes" : "No") << std::endl;
 }
 
 //TAU IMPLEMENTATION
@@ -63,5 +63,5 @@ Tau::Tau(bool anti, double E, double px, double py, double pz, std::string decay
 
 void Tau::print() const {
     Lepton::print();
-    std::cout << " Type: Tau | Decay Mode: " << decay_mode << std::endl;
+    std::cout << " Type: " << (is_antiparticle ? "Anti-" : "") << "Tau | Decay Mode: " << decay_mode << std::endl;
 }
