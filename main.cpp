@@ -31,6 +31,8 @@ int main() {
         std::cout << *p << "\n-----------------\n" << std::endl;
     }
 
+    std::cout << "------STARTING TESTS------\n" << std::endl;
+
     //sum 4-vecs of electrons
     FourMomentum electron_sum = *particles[0] + *particles[1];
     std::cout << "Sum of Electron 4-Momenta: " << electron_sum << std::endl;
@@ -56,7 +58,7 @@ int main() {
     {
         std::shared_ptr<Tau> detector_view = shared_tau;
         std::cout << "Tau currently owned by " << shared_tau.use_count() << " variables" << std::endl;
-        std::cout << "Detector view of Tau: ";
+        std::cout << "Detector view of Tau:\n";
         detector_view->print();
     }
     std::cout << "After detector view goes out of scope, Tau owned by " << shared_tau.use_count() << " variable(s)" << std::endl;
