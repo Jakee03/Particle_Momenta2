@@ -32,3 +32,8 @@ double FourMomentum::get_pz() const { return pz; }
 void FourMomentum::set_px(double px) { this->px = px; }
 void FourMomentum::set_py(double py) { this->py = py; }
 void FourMomentum::set_pz(double pz) { this->pz = pz; }
+
+std::ostream& operator<<(std::ostream& os, const FourMomentum& m) {
+    os << "(" << m.get_energy() << ", " << m.get_px() << ", " << m.get_py() << ", " << m.get_pz() << ")";
+    return os;
+}

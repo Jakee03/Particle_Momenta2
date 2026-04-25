@@ -27,6 +27,8 @@ public:
     //dot product
     double dot_product(const FourMomentum& other) const;
 
+    friend std::ostream& operator<<(std::ostream& os, const FourMomentum& m);
+
 };
 
 #endif

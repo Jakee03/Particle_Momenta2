@@ -9,10 +9,10 @@ int main() {
     //container of base class pointers
     std::vector<std::unique_ptr<Particle>> particles;
     //2e, 4m, anti e, anti m, m neu, e neu, tau, anti tau
-    particles.push_back(std::make_unique<Electron>(false, 100.0, 10.0, 0.0, 0.0));
-    particles.push_back(std::make_unique<Electron>(false, 150.0, 15.0, 0.0, 0.0));
+    particles.push_back(std::make_unique<Electron>(false, 100.0, 10.0, 5.0, 2.0));
+    particles.push_back(std::make_unique<Electron>(false, 150.0, -5.0, 2.0, -1.0));
 
-    particles.push_back(std::make_unique<Muon>(false, 200.0, 20.0, 0.0, 0.0));
+    particles.push_back(std::make_unique<Muon>(false, 500.0, 0.0, 100.0, 50.0));
     particles.push_back(std::make_unique<Muon>(false, 230.0, 10.0, 0.0, 0.0));
     particles.push_back(std::make_unique<Muon>(false, 100.0, 15.0, 0.0, 0.0));
     particles.push_back(std::make_unique<Muon>(false, 90.0, 60.0, 0.0, 0.0));
@@ -30,7 +30,13 @@ int main() {
     for (const auto& p : particles) {
         p->print();
         std::cout << "-----------------" << std::endl;
+
+    //sum 4-vecs of electrons
+    FourMomentum electron_sum = *particles[0] + *particles[1];
+    std::cout << "Sum of Electron 4-Momenta: " << electron_sum << std::endl;
     }
+
+
 
     return 0;
 }
