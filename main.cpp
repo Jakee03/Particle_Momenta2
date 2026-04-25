@@ -51,6 +51,17 @@ int main() {
     }
     std::cout << std::endl;
 
+    //shared pointer for a tauon owned by multiple variables
+    std::cout << "Shared pointer for a Tauon" << std::endl;
+    std::shared_ptr<Tau> shared_tau = std::make_shared<Tau>(false, 1776.8, 10.0, 0.0, 0.0);
+    {
+        std::shared_ptr<Tau> detector_view = shared_tau;
+        std::cout << "Tau currently owned by " << shared_tau.use_count() << " variables" << std::endl;
+        std::cout << "Detector view of Tau: ";
+        detector_view->print();
+    }
+    std::cout << "After detector view goes out of scope, Tau owned by " << shared_tau.use_count() << " variable(s)" << std::endl;
+
 
     return 0;
 }
