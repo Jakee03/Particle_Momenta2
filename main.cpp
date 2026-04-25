@@ -36,6 +36,10 @@ int main() {
     std::cout << "Sum of Electron 4-Momenta: " << electron_sum << std::endl;
     }
 
+    //dot product of antielectron and antimuon
+    double dot = dot_product(*particles[6], *particles[7]);
+    std::cout << "Dot Product of Anti-Electron and Anti-Muon: " << dot << " MeV^2\n" << std::endl;
+
 
 
     return 0;
