@@ -15,8 +15,13 @@ Particle::Particle() : name("unknown"), mass(0), charge(0), is_antiparticle(fals
 //parameterized constructor
 Particle::Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
     : name(name), mass(mass), charge(charge), is_antiparticle(is_antiparticle), 
-      momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {       
-}
+      momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {
+    if (mass < 0) {
+        throw std::invalid_argument("Particle mass cannot be negative.");
+    }
+    if (E < 0) {
+        throw std::invalid_argument("Particle energy cannot be negative.");
+    }
 
 //destructor
 Particle::~Particle() {
