@@ -9,12 +9,12 @@
 #include <cmath>
 
 //default constructor
-Particle::Particle() : name("unknown"), mass(0), charge(0), is_antiparticle(false), momentum(std::make_unique<FourMomentum>(0.0, 0.0, 0.0, 0.0)) {
+Particle::Particle() : mass(0), charge(0), is_antiparticle(false), momentum(std::make_unique<FourMomentum>(0.0, 0.0, 0.0, 0.0)) {
 }
 
 //parameterized constructor
-Particle::Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
-    : name(name), mass(mass), charge(charge), is_antiparticle(is_antiparticle), 
+Particle::Particle(double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
+    : mass(mass), charge(charge), is_antiparticle(is_antiparticle), 
       momentum(std::make_unique<FourMomentum>(E, px, py, pz)) {
     if (mass < 0) {
         throw std::invalid_argument("Particle mass cannot be negative.");
@@ -75,12 +75,11 @@ std::ostream& operator<<(std::ostream& os, const Particle& p) {
 }
 
 void Particle::print() const {
-    std::cout << "Particle: " << name
-                << "| Mass: " << mass << " MeV"
+    std::cout   << "Mass: " << mass << " MeV"
                 << "| Charge: " << get_charge()
                 << "| Energy: " << get_energy() << " MeV" << std::endl;
 }
-
+    
 //friend func for 4-mom sum
 FourMomentum operator+(const Particle& p1, const Particle& p2) {
     return *(p1.momentum) + *(p2.momentum);

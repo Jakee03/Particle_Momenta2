@@ -7,8 +7,8 @@
 Lepton::Lepton() : Particle(), lepton_number(1) {}
 
 //parameterized constructor
-Lepton::Lepton(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
-    : Particle(name, mass, charge, is_antiparticle, E, px, py, pz), lepton_number(1) {}
+Lepton::Lepton(double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz)
+    : Particle(mass, charge, is_antiparticle, E, px, py, pz), lepton_number(1) {}
 
 //destructor
 Lepton::~Lepton() = default;
@@ -27,19 +27,19 @@ void Lepton::print() const {
 
 //default constructor
 Neutrino::Neutrino(std::string flavour, bool anti, double E, double px, double py, double pz, bool interacted)
-    : Lepton(flavour + " neutrino", 0.0, 0.0, anti, E, px, py, pz), has_interacted(interacted) {}
+    : Lepton(0.0, 0.0, anti, E, px, py, pz), flavour(flavour), has_interacted(interacted) {}
 
 Neutrino::~Neutrino() = default;
 
 void Neutrino::print() const {
     Lepton::print();
-    std::cout << " Type: Neutrino | Has Interacted: " << (has_interacted ? "Yes" : "No") << std::endl;
+    std::cout << " Type: " << flavour << " Neutrino | Has Interacted: " << (has_interacted ? "Yes" : "No") << std::endl;
 }
 
 //ELECTRON IMPLEMENTATION
     
 Electron::Electron(bool anti, double E, double px, double py, double pz, double rad_length)
-    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz), radiation_length(rad_length) {}
+    : Lepton(0.511, -1.0, anti, E, px, py, pz), radiation_length(rad_length) {}
 
 void Electron::print() const {
     Lepton::print();
@@ -49,7 +49,7 @@ void Electron::print() const {
 //MUON IMPLEMENTATION
 
 Muon::Muon(bool anti, double E, double px, double py, double pz, bool isolated)
-    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz), is_isolated(isolated) {}
+    : Lepton(105.7, -1.0, anti, E, px, py, pz), is_isolated(isolated) {}
 
 void Muon::print() const {
     Lepton::print();
@@ -59,7 +59,7 @@ void Muon::print() const {
 //TAU IMPLEMENTATION
 
 Tau::Tau(bool anti, double E, double px, double py, double pz, std::string decay_mode)
-    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz), decay_mode(decay_mode) {}
+    : Lepton(1776.8, -1.0, anti, E, px, py, pz), decay_mode(decay_mode) {}
 
 void Tau::print() const {
     Lepton::print();

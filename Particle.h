@@ -20,7 +20,7 @@ public:
     //default constructor
     Particle();
     //parameterized constructor
-    Particle(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz);
+    Particle(double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz);
     
     //Ro5
     //destructor

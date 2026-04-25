@@ -11,7 +11,7 @@ protected:
 public:
     //constructors
     Lepton();
-    Lepton(std::string name, double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz);
+    Lepton(double mass, double charge, bool is_antiparticle, double E, double px, double py, double pz);
 
     //destructor
     virtual ~Lepton() override;
@@ -24,6 +24,7 @@ public:
 
 class Neutrino : public Lepton {
 private:
+    std::string flavour;
     bool has_interacted;
 
 public:
