@@ -42,6 +42,9 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Particle& p);
 
     virtual void print() const;
+
+    friend FourMomentum operator+(const Particle& p1, const Particle& p2);
+    friend double dot_product(const Particle& p1, const Particle& p2);
 };
 
 #endif

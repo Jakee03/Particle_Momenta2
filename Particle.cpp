@@ -75,4 +75,12 @@ void Particle::print() const {
                 << "| Energy: " << get_energy() << " MeV" << std::endl;
 }
 
+//friend func for 4-mom sum
+FourMomentum operator+(const Particle& p1, const Particle& p2) {
+    return *(p1.momentum) + *(p2.momentum);
+}
 
+//friend func for dot product
+double dot_product(const Particle& p1, const Particle& p2) {
+    return p1.momentum->dot_product(*p2.momentum);
+}
