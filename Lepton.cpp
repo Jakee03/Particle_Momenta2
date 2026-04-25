@@ -35,3 +35,33 @@ void Neutrino::print() const {
     Lepton::print();
     std::cout << " Type: Neutrino" << std::endl;
 }
+
+//ELECTRON IMPLEMENTATION
+
+Electron::Electron(bool anti, double E, double px, double py, double pz)
+    : Lepton("Electron", 0.511, -1.0, anti, E, px, py, pz) {}
+
+void Electron::print() const {
+    Lepton::print();
+    std::cout << " Type: Electron" << std::endl;
+}
+
+//MUON IMPLEMENTATION
+
+Muon::Muon(bool anti, double E, double px, double py, double pz)
+    : Lepton("Muon", 105.7, -1.0, anti, E, px, py, pz) {}
+
+void Muon::print() const {
+    Lepton::print();
+    std::cout << " Type: Muon" << std::endl;
+}
+
+//TAU IMPLEMENTATION
+
+Tau::Tau(bool anti, double E, double px, double py, double pz)
+    : Lepton("Tau", 1776.8, -1.0, anti, E, px, py, pz) {}
+
+void Tau::print() const {
+    Lepton::print();
+    std::cout << " Type: Tau" << std::endl;
+}
